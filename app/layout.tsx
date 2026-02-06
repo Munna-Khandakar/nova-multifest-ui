@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Nova MultiFest",
   description:
-    "Nova MultiFest is a three-day celebration of music, art, and cultural exchange.",
+    "Nova MultiFest is a three-day celebration of art, culture, and diversity in Dartmouth, Nova Scotia.",
 }
 
 export default function RootLayout({

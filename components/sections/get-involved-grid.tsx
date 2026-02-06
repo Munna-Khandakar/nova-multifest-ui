@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/layout/container"
-import { getInvolvedNav } from "@/lib/nav"
+import { getInvolvedItems } from "@/lib/constants"
 
 export function GetInvolvedGrid() {
   return (
@@ -30,27 +30,29 @@ export function GetInvolvedGrid() {
           </div>
 
           <div className="grid gap-4 md:grid-cols-2">
-            {getInvolvedNav.map((item) => {
+            {getInvolvedItems.map((item) => {
               const Icon = item.icon
 
               return (
                 <Card
-                  key={item.label}
-                  id={item.anchor}
+                  key={item.title}
+                  id={item.title.toLowerCase().replace(/\s+/g, "-")}
                   className="scroll-mt-24 h-full"
                 >
                   <CardHeader className="flex-row items-center gap-3">
                     <span className="bg-primary/10 text-primary inline-flex size-10 items-center justify-center rounded-lg">
                       <Icon className="size-5" aria-hidden="true" />
                     </span>
-                    <CardTitle>{item.label}</CardTitle>
+                    <CardTitle>{item.title}</CardTitle>
                   </CardHeader>
                   <CardContent className="text-muted-foreground">
                     {item.description}
                   </CardContent>
                   <CardFooter>
                     <Button asChild variant="outline" size="sm">
-                      <Link href={item.href}>Learn more</Link>
+                      <Link href={item.href} target="_blank" rel="noreferrer">
+                        Apply now
+                      </Link>
                     </Button>
                   </CardFooter>
                 </Card>

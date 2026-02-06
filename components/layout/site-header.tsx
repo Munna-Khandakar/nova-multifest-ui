@@ -1,6 +1,7 @@
 import Link from "next/link"
 
 import { Container } from "@/components/layout/container"
+import { SiteBanner } from "@/components/layout/site-banner"
 import { MainNav } from "@/components/navigation/main-nav"
 import { MobileNav } from "@/components/navigation/mobile-nav"
 import { site } from "@/lib/constants"
@@ -8,6 +9,7 @@ import { site } from "@/lib/constants"
 export function SiteHeader() {
   return (
     <header className="bg-background/95 supports-backdrop-filter:backdrop-blur sticky top-0 z-40 border-b">
+      <SiteBanner />
       <Container className="flex h-16 items-center justify-between gap-4">
         <Link
           href="/"

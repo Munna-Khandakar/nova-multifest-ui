@@ -2,8 +2,12 @@ import Link from "next/link"
 
 import { Container } from "@/components/layout/container"
 import { Separator } from "@/components/ui/separator"
-import { footerNav, getInvolvedNav } from "@/lib/nav"
-import { site } from "@/lib/constants"
+import {
+  applicationLinks,
+  quickLinks,
+  site,
+  socialLinks,
+} from "@/lib/constants"
 
 export function SiteFooter() {
   return (
@@ -16,34 +20,55 @@ export function SiteFooter() {
               {site.tagline} Join us in {site.city} for three days of music,
               art, and community connection.
             </p>
+            <div className="flex flex-wrap gap-2">
+              {socialLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-muted-foreground hover:text-foreground text-xs font-semibold uppercase tracking-[0.2em]"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </div>
 
           <div className="flex flex-col gap-3">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-              Festival
+              Quick Links
             </p>
-            <nav className="flex flex-col gap-2" aria-label="Footer">
-              {footerNav.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="text-sm text-muted-foreground transition hover:text-foreground"
-                >
-                  {item.label}
-                </Link>
-              ))}
+            <nav className="flex flex-col gap-2" aria-label="Quick links">
+              {quickLinks.map((item) => {
+                const isExternal = item.href.startsWith("http")
+
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noreferrer" : undefined}
+                    className="text-sm text-muted-foreground transition hover:text-foreground"
+                  >
+                    {item.label}
+                  </Link>
+                )
+              })}
             </nav>
           </div>
 
           <div className="flex flex-col gap-3">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-              Get Involved
+              Applications
             </p>
-            <nav className="flex flex-col gap-2" aria-label="Get involved">
-              {getInvolvedNav.map((item) => (
+            <nav className="flex flex-col gap-2" aria-label="Applications">
+              {applicationLinks.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
                   className="text-sm text-muted-foreground transition hover:text-foreground"
                 >
                   {item.label}
@@ -59,7 +84,7 @@ export function SiteFooter() {
           <span>
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </span>
-          <span>Built with community partners across Northern Virginia.</span>
+          <span>Built with community partners across Nova Scotia.</span>
         </div>
       </Container>
     </footer>

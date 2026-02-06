@@ -1,5 +1,8 @@
+import Link from "next/link"
+
 import { Container } from "@/components/layout/container"
 import { PageHeader } from "@/components/layout/page-header"
+import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
@@ -7,22 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { VolunteerForm } from "@/components/sections/volunteer-form"
-
-const contactDetails = [
-  {
-    label: "General inquiries",
-    value: "hello@novamultifest.org",
-  },
-  {
-    label: "Vendor relations",
-    value: "vendors@novamultifest.org",
-  },
-  {
-    label: "Sponsorship",
-    value: "partners@novamultifest.org",
-  },
-]
+import { applicationLinks, socialLinks, site } from "@/lib/constants"
 
 export default function ContactPage() {
   return (
@@ -30,38 +18,64 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Contact"
         title="Get in touch"
-        description="Reach out to our team or submit a volunteer application below. We respond within two business days."
+        description="Connect with the Nova Multifest Society team and follow along for announcements."
       />
 
       <section className="pb-12 sm:pb-16">
         <Container>
-          <div className="grid gap-6 lg:grid-cols-[1fr_1.4fr]">
+          <div className="grid gap-6 lg:grid-cols-[1fr_1.1fr]">
             <Card className="h-fit">
               <CardHeader>
-                <CardTitle>Contact information</CardTitle>
+                <CardTitle>Festival location</CardTitle>
                 <CardDescription>
-                  Our inboxes are monitored Monday through Friday.
+                  {site.dates} · {site.location}
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
-                {contactDetails.map((detail) => (
-                  <div key={detail.label}>
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-                      {detail.label}
-                    </p>
-                    <p className="text-sm font-medium">{detail.value}</p>
-                  </div>
-                ))}
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-                    Office hours
-                  </p>
-                  <p className="text-sm font-medium">9:00 AM – 5:00 PM ET</p>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <p>
+                  Nova MultiFest is hosted at Alderney Landing on the Dartmouth
+                  waterfront. Follow our social channels for updates on
+                  programming, applications, and community events.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {socialLinks.map((link) => (
+                    <Button key={link.label} asChild variant="outline">
+                      <Link href={link.href} target="_blank" rel="noreferrer">
+                        {link.label}
+                      </Link>
+                    </Button>
+                  ))}
                 </div>
               </CardContent>
             </Card>
 
-            <VolunteerForm id="volunteer" className="scroll-mt-24" />
+            <Card>
+              <CardHeader>
+                <CardTitle>Applications & resources</CardTitle>
+                <CardDescription>
+                  Submit an application or download the sponsorship package.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {applicationLinks.map((link) => (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="border-border/80 text-muted-foreground hover:text-foreground flex items-center justify-between rounded-lg border px-4 py-3 text-sm font-medium transition"
+                  >
+                    {link.label}
+                    <span className="text-xs uppercase tracking-[0.2em]">
+                      Open
+                    </span>
+                  </Link>
+                ))}
+                <Button asChild className="w-full">
+                  <Link href="/applications">View all applications</Link>
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </Container>
       </section>

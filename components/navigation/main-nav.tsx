@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, ExternalLink } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -14,19 +14,20 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { cn } from "@/lib/utils"
-import { getInvolvedNav, mainNav } from "@/lib/nav"
+import { primaryNav } from "@/lib/nav"
+import { loginLinks } from "@/lib/constants"
 
 export function MainNav() {
   const pathname = usePathname()
-  const donateItem = mainNav.find((item) => item.label === "Donate")
-  const primaryItems = mainNav.filter((item) => item.label !== "Donate")
+  const donateItem = primaryNav.find((item) => item.label === "Donate")
+  const navItems = primaryNav.filter((item) => item.label !== "Donate")
 
   return (
     <nav
       className="hidden items-center gap-2 lg:flex"
       aria-label="Primary navigation"
     >
-      {primaryItems.map((item) => {
+      {navItems.map((item) => {
         const isActive = pathname === item.href
         const Icon = item.icon
 
@@ -55,28 +56,29 @@ export function MainNav() {
             size="sm"
             className="text-muted-foreground hover:text-foreground"
           >
-            Get Involved
+            Login
             <ChevronDown className="size-4" aria-hidden="true" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="start" className="w-64">
-          <DropdownMenuLabel>Get Involved</DropdownMenuLabel>
+          <DropdownMenuLabel>Login</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          {getInvolvedNav.map((item) => {
-            const Icon = item.icon
+          {loginLinks.map((item) => {
             return (
               <DropdownMenuItem key={item.label} asChild>
                 <Link
                   href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
                   className="flex items-start gap-3"
                 >
                   <span className="bg-primary/10 text-primary mt-0.5 inline-flex size-8 items-center justify-center rounded-lg">
-                    <Icon className="size-4" aria-hidden="true" />
+                    <ExternalLink className="size-4" aria-hidden="true" />
                   </span>
                   <span className="flex flex-col gap-1">
                     <span className="text-sm font-medium">{item.label}</span>
                     <span className="text-muted-foreground text-xs">
-                      {item.description}
+                      Sign in to manage your application.
                     </span>
                   </span>
                 </Link>

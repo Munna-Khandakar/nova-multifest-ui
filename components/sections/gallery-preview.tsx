@@ -1,10 +1,9 @@
 import Link from "next/link"
 
 import { Container } from "@/components/layout/container"
-import { PageHeader } from "@/components/layout/page-header"
 import { Button } from "@/components/ui/button"
 
-const galleryItems = [
+const galleryHighlights = [
   {
     title: "Live Performances",
     description: "Main stage sets and cultural showcases.",
@@ -31,44 +30,46 @@ const galleryItems = [
   },
 ]
 
-export default function GalleryPage() {
+export function GalleryPreview() {
   return (
-    <>
-      <PageHeader
-        eyebrow="Gallery"
-        title="Photo & video gallery"
-        description="Explore highlights from Nova MultiFest and the energy of our waterfront celebrations."
-      />
+    <section className="py-12 sm:py-16">
+      <Container>
+        <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-3">
+            <p className="text-muted-foreground text-xs font-semibold uppercase tracking-[0.2em]">
+              Gallery
+            </p>
+            <h2 className="text-2xl font-semibold sm:text-3xl">
+              Highlights from previous festivals
+            </h2>
+            <p className="text-muted-foreground max-w-2xl text-base">
+              Relive the music, food, and community moments that define Nova
+              MultiFest.
+            </p>
+          </div>
 
-      <section className="pb-12 sm:pb-16">
-        <Container>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {galleryItems.map((item) => (
-              <figure
+            {galleryHighlights.map((item) => (
+              <div
                 key={item.title}
                 className="border-border/80 bg-muted/30 rounded-xl border p-4"
               >
-                <div className="from-primary/10 via-background to-background h-40 w-full rounded-lg bg-gradient-to-br" />
-                <figcaption className="mt-4 space-y-1">
+                <div className="from-primary/10 via-background to-background h-36 w-full rounded-lg bg-gradient-to-br" />
+                <div className="mt-4 space-y-1">
                   <p className="text-base font-semibold">{item.title}</p>
                   <p className="text-muted-foreground text-sm">
                     {item.description}
                   </p>
-                </figcaption>
-              </figure>
+                </div>
+              </div>
             ))}
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild>
-              <Link href="/applications">Apply to participate</Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="/contact">Connect with the team</Link>
-            </Button>
-          </div>
-        </Container>
-      </section>
-    </>
+          <Button asChild variant="outline" className="w-fit">
+            <Link href="/gallery">View full gallery</Link>
+          </Button>
+        </div>
+      </Container>
+    </section>
   )
 }

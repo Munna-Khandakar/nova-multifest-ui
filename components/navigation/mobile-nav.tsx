@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X } from "lucide-react"
+import { ExternalLink, Menu, X } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
@@ -15,8 +15,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { getInvolvedNav, mainNav } from "@/lib/nav"
-import { site } from "@/lib/constants"
+import { primaryNav } from "@/lib/nav"
+import { loginLinks, site } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 
 export function MobileNav() {
@@ -49,7 +49,7 @@ export function MobileNav() {
             <p className="text-muted-foreground text-xs font-semibold uppercase tracking-[0.2em]">
               Explore
             </p>
-            {mainNav.map((item) => {
+            {primaryNav.map((item) => {
               const isActive = pathname === item.href
               const Icon = item.icon
 
@@ -73,24 +73,24 @@ export function MobileNav() {
             <Separator className="my-2" />
 
             <p className="text-muted-foreground text-xs font-semibold uppercase tracking-[0.2em]">
-              Get Involved
+              Login
             </p>
-            {getInvolvedNav.map((item) => {
-              const Icon = item.icon
-
+            {loginLinks.map((item) => {
               return (
                 <SheetClose key={item.label} asChild>
                   <Link
                     href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
                     className="hover:text-foreground focus-visible:ring-ring focus-visible:ring-offset-background group flex items-start gap-3 rounded-lg px-3 py-2 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                   >
                     <span className="bg-primary/10 text-primary mt-0.5 inline-flex size-8 items-center justify-center rounded-lg">
-                      <Icon className="size-4" aria-hidden="true" />
+                      <ExternalLink className="size-4" aria-hidden="true" />
                     </span>
                     <span className="flex flex-col gap-1">
                       <span className="font-medium">{item.label}</span>
                       <span className="text-muted-foreground text-xs">
-                        {item.description}
+                        Sign in to manage your application.
                       </span>
                     </span>
                   </Link>

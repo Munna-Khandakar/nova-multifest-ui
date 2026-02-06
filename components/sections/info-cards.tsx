@@ -15,7 +15,7 @@ import { quickInfo } from "@/lib/constants"
 
 export function InfoCards() {
   const prefersReducedMotion = useReducedMotion()
-  const fadeUp = createFadeUp(prefersReducedMotion)
+  const fadeUp = createFadeUp(prefersReducedMotion ?? false)
 
   return (
     <section className="py-12 sm:py-16">
