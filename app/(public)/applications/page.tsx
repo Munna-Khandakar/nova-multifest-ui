@@ -18,7 +18,7 @@ const applicationItems = [
     title: "Food Vendor Application",
     description:
       "Apply to serve food and beverages at Nova MultiFest. Vendors are responsible for permits, insurance, and health regulations.",
-    href: "https://multifestns.ca/applications/food-vendor",
+    href: "/applications/food-vendor",
   },
   {
     title: "Exhibitor Vendor Application",
@@ -64,7 +64,11 @@ export default function ApplicationsPage() {
                   </CardHeader>
                   <CardContent>
                     <Button asChild variant="outline">
-                      <Link href={item.href} target="_blank" rel="noreferrer">
+                      <Link
+                        href={item.href}
+                        target={item.href.startsWith("http") ? "_blank" : undefined}
+                        rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                      >
                         Apply now
                       </Link>
                     </Button>

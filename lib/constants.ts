@@ -62,7 +62,7 @@ export const getInvolvedItems = [
     description:
       "Showcase your products or services at Nova Multifest and connect with a diverse audience. Vendors are responsible for securing permits, insurance, and meeting all regulations. Apply now to be a part of this exciting event",
     icon: Store,
-    href: "https://multifestns.ca/applications/food-vendor",
+    href: "/applications/food-vendor",
   },
   {
     title: "Performers",
@@ -108,7 +108,7 @@ export const socialLinks = [
 ]
 
 export const applicationLinks = [
-  { label: "Food Vendor", href: "https://multifestns.ca/applications/food-vendor" },
+  { label: "Food Vendor", href: "/applications/food-vendor" },
   { label: "Exhibitor", href: "https://multifestns.ca/applications/exhibitor-vendor" },
   { label: "Performer", href: "https://multifestns.ca/applications/performer" },
   { label: "Volunteer", href: "https://multifestns.ca/applications/volunteer" },

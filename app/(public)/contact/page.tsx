@@ -57,20 +57,23 @@ export default function ContactPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
-                {applicationLinks.map((link) => (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="border-border/80 text-muted-foreground hover:text-foreground flex items-center justify-between rounded-lg border px-4 py-3 text-sm font-medium transition"
-                  >
-                    {link.label}
-                    <span className="text-xs uppercase tracking-[0.2em]">
-                      Open
-                    </span>
-                  </Link>
-                ))}
+                {applicationLinks.map((link) => {
+                  const isExternal = link.href.startsWith("http")
+                  return (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      target={isExternal ? "_blank" : undefined}
+                      rel={isExternal ? "noreferrer" : undefined}
+                      className="border-border/80 text-muted-foreground hover:text-foreground flex items-center justify-between rounded-lg border px-4 py-3 text-sm font-medium transition"
+                    >
+                      {link.label}
+                      <span className="text-xs uppercase tracking-[0.2em]">
+                        Open
+                      </span>
+                    </Link>
+                  )
+                })}
                 <Button asChild className="w-full">
                   <Link href="/applications">View all applications</Link>
                 </Button>

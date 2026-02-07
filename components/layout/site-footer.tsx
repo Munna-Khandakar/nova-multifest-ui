@@ -63,17 +63,20 @@ export function SiteFooter() {
               Applications
             </p>
             <nav className="flex flex-col gap-2" aria-label="Applications">
-              {applicationLinks.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-sm text-muted-foreground transition hover:text-foreground"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {applicationLinks.map((item) => {
+                const isExternal = item.href.startsWith("http")
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noreferrer" : undefined}
+                    className="text-sm text-muted-foreground transition hover:text-foreground"
+                  >
+                    {item.label}
+                  </Link>
+                )
+              })}
             </nav>
           </div>
         </div>
