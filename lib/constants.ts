@@ -109,7 +109,7 @@ export const socialLinks = [
 
 export const applicationLinks = [
   { label: "Food Vendor", href: "/applications/food-vendor" },
-  { label: "Exhibitor", href: "https://multifestns.ca/applications/exhibitor-vendor" },
+  { label: "Exhibitor", href: "/applications/exhibitor-vendor" },
   { label: "Performer", href: "https://multifestns.ca/applications/performer" },
   { label: "Volunteer", href: "https://multifestns.ca/applications/volunteer" },
   {

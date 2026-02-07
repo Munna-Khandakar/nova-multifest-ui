@@ -24,7 +24,7 @@ const applicationItems = [
     title: "Exhibitor Vendor Application",
     description:
       "Apply to showcase products, services, or artisan goods during the festival weekend.",
-    href: "https://multifestns.ca/applications/exhibitor-vendor",
+    href: "/applications/exhibitor-vendor",
   },
   {
     title: "Performer Application",
