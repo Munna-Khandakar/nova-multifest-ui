@@ -36,7 +36,7 @@ const applicationItems = [
     title: "Volunteer Application",
     description:
       "Join the volunteer team and support festival operations across the weekend.",
-    href: "https://multifestns.ca/applications/volunteer",
+    href: "/applications/volunteer",
   },
 ]
 

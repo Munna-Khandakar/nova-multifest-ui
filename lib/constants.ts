@@ -55,7 +55,7 @@ export const getInvolvedItems = [
     description:
       "Join our team and help make Nova Multifest a success! Gain experience, meet new people, and contribute to a meaningful community event.",
     icon: Users,
-    href: "https://multifestns.ca/applications/volunteer",
+    href: "/applications/volunteer",
   },
   {
     title: "Vendors",
@@ -111,7 +111,7 @@ export const applicationLinks = [
   { label: "Food Vendor", href: "/applications/food-vendor" },
   { label: "Exhibitor", href: "/applications/exhibitor-vendor" },
   { label: "Performer", href: "https://multifestns.ca/applications/performer" },
-  { label: "Volunteer", href: "https://multifestns.ca/applications/volunteer" },
+  { label: "Volunteer", href: "/applications/volunteer" },
   {
     label: "Sponsorship Package",
     href: "https://multifestns.ca/wp-content/uploads/2025/02/Sponsorship-Package-Nova-Multifest-2025v4-1.pdf",
