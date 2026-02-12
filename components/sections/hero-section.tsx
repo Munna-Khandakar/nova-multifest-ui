@@ -117,22 +117,22 @@ export function HeroSection() {
                             whileHover={prefersReducedMotion ? undefined : {y: -6}}
                             transition={{type: "spring", stiffness: 200, damping: 18}}
                         >
-                            <Card className="bg-background/85 shadow-lg shadow-black/5 backdrop-blur">
+                            <Card className="bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg">
                                 <CardHeader>
-                                    <CardTitle className="text-lg">Our Event Schedule</CardTitle>
+                                    <CardTitle className="text-lg text-white">Our Event Schedule</CardTitle>
                                 </CardHeader>
                                 <CardContent className="space-y-4">
                                     {
                                         eventSchedule.map((item) => (
                                             <div
                                                 key={item.day}
-                                                className="border-border/70 flex items-center justify-between gap-4 border-b pb-3 last:border-b-0 last:pb-0"
+                                                className="border-border/30 flex items-center justify-between gap-4 border-b pb-3 last:border-b-0 last:pb-0"
                                             >
                                                 <div>
-                                                    <p className="text-sm font-semibold">{item.day}</p>
-                                                    <p className="text-muted-foreground text-xs">{item.date}</p>
+                                                    <p className="text-sm font-semibold text-white">{item.day}</p>
+                                                    <p className="text-xs text-white">{item.date}</p>
                                                 </div>
-                                                <p className="text-sm font-medium">{item.time}</p>
+                                                <p className="text-sm font-medium text-white">{item.time}</p>
                                             </div>
                                         ))
                                     }
