@@ -61,7 +61,7 @@ export function HeroSection() {
                             variants={fadeUp}
                             className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-white/70"
                         >
-                            <span className="bg-primary/30 text-primary inline-flex h-2 w-2 rounded-full"/>
+                            <span className="bg-primary text-primary inline-flex h-2 w-2 rounded-full"/>
                             {site.tagline}
                         </motion.p>
 
@@ -74,7 +74,7 @@ export function HeroSection() {
               </span>
                         </motion.h1>
 
-                        <motion.div variants={fadeUp} className="bg-primary/40 h-px w-24 rounded-full"/>
+                        <motion.div variants={fadeUp} className="bg-primary h-px w-24 rounded-full"/>
 
                         <motion.p variants={fadeUp} className="max-w-2xl text-base text-white/80 sm:text-lg">
                             Celebrate music, food, and cultural exchange with a full weekend
