@@ -13,7 +13,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 export default function HomePage() {
   return (
-    <>
+    <div className="relative isolate">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background" />
+        <div className="confetti-drift-slow absolute inset-0 bg-[url('/celebration-texture.svg')] bg-[length:280px_280px] opacity-20" />
+        <div className="confetti-drift-fast absolute inset-0 bg-[url('/celebration-texture.svg')] bg-[length:360px_360px] opacity-12 mix-blend-multiply" />
+      </div>
       <HeroSection />
       <InfoCards />
       <ScheduleOverview />
@@ -44,6 +52,6 @@ export default function HomePage() {
       </section>
 
       <PartnersStrip />
-    </>
+    </div>
   )
 }

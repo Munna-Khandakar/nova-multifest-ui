@@ -128,3 +128,30 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes confetti-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-1.5%, -1.5%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.confetti-drift-slow {
+  animation: confetti-drift 28s ease-in-out infinite;
+}
+
+.confetti-drift-fast {
+  animation: confetti-drift 18s ease-in-out infinite reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .confetti-drift-slow,
+  .confetti-drift-fast {
+    animation: none;
+  }
+}
