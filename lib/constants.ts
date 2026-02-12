@@ -130,5 +130,5 @@ export const loginLinks = [
 export const quickLinks = [
   { label: "Contact Us", href: "/contact" },
   { label: "Our Team", href: "/our-team" },
-  { label: "Site Rules and Regulations", href: "https://multifestns.ca/site-rules-regulation/" },
+  { label: "Site Rules and Regulations", href: "/site-rules-regulation" },
 ]

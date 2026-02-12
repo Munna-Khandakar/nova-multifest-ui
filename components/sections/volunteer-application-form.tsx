@@ -642,7 +642,7 @@ export function VolunteerApplicationForm() {
                 to ensure a safe and respectful environment for all.
               </p>
               <a
-                href="https://multifestns.ca/site-rules-regulation/"
+                href="/site-rules-regulation"
                 target="_blank"
                 rel="noreferrer"
                 className="text-primary text-xs font-semibold uppercase tracking-[0.2em]"

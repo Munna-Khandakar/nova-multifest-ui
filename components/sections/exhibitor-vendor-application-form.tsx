@@ -312,7 +312,7 @@ export function ExhibitorVendorApplicationForm() {
               application.
             </p>
             <a
-              href="https://multifestns.ca/site-rules-regulation/"
+              href="/site-rules-regulation"
               target="_blank"
               rel="noreferrer"
               className="text-primary text-xs font-semibold uppercase tracking-[0.2em]"
@@ -813,7 +813,7 @@ export function ExhibitorVendorApplicationForm() {
                 financial situation to compensate.
               </p>
               <a
-                href="https://multifestns.ca/site-rules-regulation/"
+                href="/site-rules-regulation"
                 target="_blank"
                 rel="noreferrer"
                 className="text-primary text-xs font-semibold uppercase tracking-[0.2em]"
