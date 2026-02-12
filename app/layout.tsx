@@ -19,7 +19,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-sans antialiased">
-        <div className="flex min-h-screen flex-col">
+        <div className="relative isolate flex min-h-screen flex-col">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background" />
+            <div className="confetti-drift-slow absolute inset-0 bg-[url('/celebration-texture.svg')] bg-[length:280px_280px] opacity-20" />
+            <div className="confetti-drift-fast absolute inset-0 bg-[url('/celebration-texture.svg')] bg-[length:360px_360px] opacity-12 mix-blend-multiply" />
+          </div>
           <SiteHeader />
           <main className="flex-1">{children}</main>
           <SiteFooter />
